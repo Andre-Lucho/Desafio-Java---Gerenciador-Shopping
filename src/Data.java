@@ -6,7 +6,6 @@ public class Data {
     private int ano;
 
     public Data(int dia, int mes, int ano) {
-        
         if (dia >= 1 && dia <= 31) {
             if(mes >= 1 && mes <= 12){
                 if(ano >= 2000){
