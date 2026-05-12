@@ -6,20 +6,13 @@ public class Data {
     private int ano;
 
     public Data(int dia, int mes, int ano) {
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+
+        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && ano >= 2000) verificaDia(dia, mes);
+        else dataInvalida();
         
-        if (dia >= 1 && dia <= 31) {
-            if(mes >= 1 && mes <= 12){
-                if(ano >= 2000){
-                    verificaDia(dia, mes);
-                } else {
-                    this.dataInvalida();
-                }
-            } else {
-                this.dataInvalida();
-            }
-        } else{
-            this.dataInvalida();
-        }
     }
 
     public int getDia() {
@@ -46,7 +39,7 @@ public class Data {
         this.ano = ano;
     }
 
-    public void dataInvalida(){
+    public void dataInvalida() {
         System.out.println("Data inválida");
         this.dia = 1;
         this.mes = 1;
@@ -54,35 +47,32 @@ public class Data {
     }
 
     public boolean verificaAnoBissexto() {
-        if ((ano % 400 == 0) || (ano % 4 == 0 && ano % 100 != 0)) {
-            return true;
-        } else {
-            return false;
-        }
+        if ((ano % 400 == 0) || (ano % 4 == 0 && ano % 100 != 0)) return true;
+        else return false;
     }
+    
 
-    public void verificaDia(int dia, int mes){
-        int[] lista = {1, 3, 5, 7, 8, 10, 12};
+    public void verificaDia(int dia, int mes) {
+        int[] lista = { 1, 3, 5, 7, 8, 10, 12 };
 
-        boolean diacom31 = Arrays.asList(lista).contains(mes);
+        boolean diacom31 = Arrays.stream(lista).anyMatch(x -> x == mes);
 
-        if(dia == 31 && diacom31){
-            this.dia = 31;
+        if (dia == 31) {
+            if (!diacom31)
+                dataInvalida();
+        } else if (mes == 2) {
+            if (dia == 30)
+                dataInvalida();
+            else if (dia == 29)
+                this.dia = verificaAnoBissexto() ? 29 : 28;
         } else {
-            dataInvalida();
-        }
-        if (dia == 29 && mes == 2) {
-            this.dia = verificaAnoBissexto() ? 29 : 28;
-        }
-
-        if(dia != 31 || (dia != 29 && mes != 2)){
             this.dia = dia;
         }
     }
 
     @Override
     public String toString() {
-        return String.format("Data: %d/%d/%d", dia, mes, ano);
+        return String.format("%d/%d/%d", dia, mes, ano);
     }
 
 }
