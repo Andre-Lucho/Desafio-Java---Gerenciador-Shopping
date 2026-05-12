@@ -83,8 +83,7 @@ public class Loja {
 
     @Override
     public String toString() {
-        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f", nome,
-                quantidadeFuncionarios, salarioBaseFuncionario);
+        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, %s, Data de fundação: %s", nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
     }
 
 }

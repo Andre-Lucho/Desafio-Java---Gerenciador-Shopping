@@ -72,7 +72,7 @@ public class Data {
 
     @Override
     public String toString() {
-        return String.format("Data: %d/%d/%d", dia, mes, ano);
+        return String.format("%d/%d/%d", dia, mes, ano);
     }
 
 }
