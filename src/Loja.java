@@ -2,13 +2,28 @@ public class Loja {
     private String nome;
     private int quantidadeFuncionarios;
     private double salarioBaseFuncionario;
+    private Endereco endereco;
+    private Data dataFundacao;
 
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data data) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.dataFundacao = data;
+    }
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data data) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.salarioBaseFuncionario = -1;
+        this.endereco = endereco;
+        this.dataFundacao = data;
+    }
     public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
     }
-
     public Loja(String nome, int quantidadeFuncionarios) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
@@ -18,25 +33,32 @@ public class Loja {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public int getQuantidadeFuncionarios() {
         return quantidadeFuncionarios;
     }
-
     public void setQuantidadeFuncionarios(int quantidadeFuncionarios) {
         this.quantidadeFuncionarios = quantidadeFuncionarios;
     }
-
     public double getSalarioBaseFuncionario() {
         return salarioBaseFuncionario;
     }
-
     public void setSalarioBaseFuncionario(double salarioBaseFuncionario) {
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+    }
+        public Endereco getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    public Data getDataFundacao() {
+        return dataFundacao;
+    }
+    public void setDataFundacao(Data data) {
+        this.dataFundacao = data;
     }
 
     public double gastosComSalario() {
@@ -61,8 +83,7 @@ public class Loja {
 
     @Override
     public String toString() {
-        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f", nome,
-                quantidadeFuncionarios, salarioBaseFuncionario);
+        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, %s, Data de fundação: %s", nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
     }
 
 }
