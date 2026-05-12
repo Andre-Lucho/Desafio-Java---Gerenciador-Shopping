@@ -51,7 +51,6 @@ public class Principal {
         int validadeAno = input.nextInt();
         Data validade = new Data(validadeDia, validadeMes, validadeAno);
 
-        
         Produto produto = new Produto(nomeProduto, precoProduto, validade);
         System.out.println("Produto criado com sucesso!");
 

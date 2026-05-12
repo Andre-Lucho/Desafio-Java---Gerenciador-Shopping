@@ -3,21 +3,21 @@ public class Loja {
     private int quantidadeFuncionarios;
     private double salarioBaseFuncionario;
     private Endereco endereco;
-    private Data data;
+    private Data dataFundacao;
 
     public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data data) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
-        this.data = data;
+        this.dataFundacao = data;
     }
     public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data data) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
         this.endereco = endereco;
-        this.data = data;
+        this.dataFundacao = data;
     }
     public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario) {
         this.nome = nome;
@@ -54,11 +54,11 @@ public class Loja {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    public Data getData() {
-        return data;
+    public Data getDataFundacao() {
+        return dataFundacao;
     }
-    public void setData(Data data) {
-        this.data = data;
+    public void setDataFundacao(Data data) {
+        this.dataFundacao = data;
     }
 
     public double gastosComSalario() {
