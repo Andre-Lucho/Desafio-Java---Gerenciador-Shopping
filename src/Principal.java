@@ -42,7 +42,7 @@ public class Principal {
         System.out.println("Digite um preço para o produto: (formato = 100,00)");
         double precoProduto = input.nextDouble();
 
-        System.out.println("Digite a data de validade do produto: (utilizar apenas números -formato: 01 05 2026)");
+        System.out.println("Digite a data de validade do produto: (utilizar apenas números - formato: 01 05 2026)");
         System.out.println("Digite o dia: ");
         int validadeDia = input.nextInt();
         System.out.println("Digite o mês: ");
@@ -69,8 +69,17 @@ public class Principal {
                     loja = criarLoja();
                     break;
                 case 2:
+                    if(loja == null){
+                        System.out.println("Primeiramente, vamos criar uma nova Loja: ");
+                        loja = criarLoja();
+                        System.out.println("Agora, vamos a criação do novo produto:");
+                    }
+                
                     produto = criarProduto();
-                    produto.estaVencido(new Data(20, 10, 2023));
+                    Boolean novoProduto = produto.estaVencido(new Data(20, 10, 2023));
+
+                    if(novoProduto) System.out.println("PRODUTO VENCIDO");
+                    else System.out.println("PRODUTO NÃO VENCIDO");
                     break;
                 case 3:
                     System.out.println("Saindo do Menu...");
