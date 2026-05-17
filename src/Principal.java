@@ -16,6 +16,10 @@ public class Principal {
         System.out.println("Digite um salário-base para os funcionários, caso necessário: (formato = 1000,00)");
         double salarioBase = input.nextDouble();
 
+        System.out.println("Digite o tamanho máximo do estoque da loja (quant máx de produtos que ela terá): ");
+        int quantProdutos = input.nextInt();
+
+
         System.out.println(
                 "Digite a data de fundação da loja, caso necessário: (utilizar apenas números - formato: 01 05 2026)");
         System.out.println("Digite o dia: ");
@@ -28,7 +32,7 @@ public class Principal {
         Endereco endereco = new Endereco("Av. Carlos Gomes", "2004", "01", "Porto Alegre", "RS", "90900-900", "Brasil");
         Data dataFundacao = new Data(dia, mes, ano);
 
-        Loja loja = new Loja(nomeLoja, quantFuncionarios, salarioBase, endereco, dataFundacao);
+        Loja loja = new Loja(nomeLoja, quantFuncionarios, salarioBase, endereco, dataFundacao, quantProdutos);
         System.out.println("Loja Criada com sucesso!");
         System.out.println(loja);
 

@@ -4,30 +4,35 @@ public class Loja {
     private double salarioBaseFuncionario;
     private Endereco endereco;
     private Data dataFundacao;
+    private Produto[] estoqueProdutos;
 
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data data) {
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data data, int quantProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
         this.dataFundacao = data;
+        this.estoqueProdutos = new Produto[quantProdutos];
     }
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data data) {
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data data, int quantProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
         this.endereco = endereco;
         this.dataFundacao = data;
+        this.estoqueProdutos = new Produto[quantProdutos];
     }
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario) {
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, int quantProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.estoqueProdutos = new Produto[quantProdutos];
     }
-    public Loja(String nome, int quantidadeFuncionarios) {
+    public Loja(String nome, int quantidadeFuncionarios, int quantProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
+        this.estoqueProdutos = new Produto[quantProdutos];
     }
 
     public String getNome() {
@@ -60,6 +65,14 @@ public class Loja {
     public void setDataFundacao(Data data) {
         this.dataFundacao = data;
     }
+    public Produto[] getEstoqueProdutos() {
+        for(Produto prod : estoqueProdutos) System.out.println(prod);
+        
+        return estoqueProdutos;
+    }
+    public void setEstoqueProdutos(Produto[] estoqueProdutos) {
+        this.estoqueProdutos = estoqueProdutos;
+    }
 
     public double gastosComSalario() {
         if (salarioBaseFuncionario != -1) {
@@ -83,7 +96,7 @@ public class Loja {
 
     @Override
     public String toString() {
-        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, %s, Data de fundação: %s", nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, %s, Data de fundação: %s, \nEstoque de Produtos: %s", nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, this.getEstoqueProdutos());
     }
 
 }
