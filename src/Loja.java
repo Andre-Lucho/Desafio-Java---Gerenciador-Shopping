@@ -65,7 +65,7 @@ public class Loja {
         if (salarioBaseFuncionario != -1) {
             return quantidadeFuncionarios * salarioBaseFuncionario;
         } else {
-            return -1;
+            return -1.0;
         }
     }
 
