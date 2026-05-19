@@ -14,6 +14,12 @@ public class Vestuario extends Loja{
     }
 
     @Override
+    public String getTipoDeNegocio() {
+        return "vestuario";
+    }
+
+
+    @Override
     public String toString() {
         return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, \n%s, \nData de fundação: %s, \nComercializa prod. importados: %b", getNome(), getQuantidadeFuncionarios(), getSalarioBaseFuncionario(), getEndereco(), getDataFundacao(), this.produtosImportados);
     }
