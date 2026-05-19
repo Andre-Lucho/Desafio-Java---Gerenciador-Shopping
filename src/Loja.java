@@ -130,7 +130,7 @@ public class Loja {
     public boolean removeProduto(String produto) {
         if (produto != null) {
             for (int i = 0; i < estoqueProdutos.length; i++) {
-                if (produto == estoqueProdutos[i].getNome()) {
+                if (estoqueProdutos[i] != null && estoqueProdutos[i].getNome().equals(produto)) {
                     estoqueProdutos[i] = null;
                     return true;
                 }

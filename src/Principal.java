@@ -19,7 +19,6 @@ public class Principal {
         System.out.println("Digite o tamanho máximo do estoque da loja (quant máx de produtos que ela terá): ");
         int quantProdutos = input.nextInt();
 
-
         System.out.println(
                 "Digite a data de fundação da loja, caso necessário: (utilizar apenas números - formato: 01 05 2026)");
         System.out.println("Digite o dia: ");
@@ -73,17 +72,19 @@ public class Principal {
                     loja = criarLoja();
                     break;
                 case 2:
-                    if(loja == null){
+                    if (loja == null) {
                         System.out.println("Primeiramente, vamos criar uma nova Loja: ");
                         loja = criarLoja();
                         System.out.println("Agora, vamos a criação do novo produto:");
                     }
-                
+
                     produto = criarProduto();
                     Boolean novoProduto = produto.estaVencido(new Data(20, 10, 2023));
 
-                    if(novoProduto) System.out.println("PRODUTO VENCIDO");
-                    else System.out.println("PRODUTO NÃO VENCIDO");
+                    if (novoProduto)
+                        System.out.println("PRODUTO VENCIDO");
+                    else
+                        System.out.println("PRODUTO NÃO VENCIDO");
                     break;
                 case 3:
                     System.out.println("Saindo do Menu...");
