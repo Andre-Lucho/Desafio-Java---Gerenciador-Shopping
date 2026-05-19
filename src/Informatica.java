@@ -2,8 +2,8 @@ public class Informatica extends Loja {
     private double seguroEletronicos;
 
     public Informatica(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco,
-            Data dataFundacao, double seguroEletronicos) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+            Data dataFundacao, double seguroEletronicos, int quantProdutos) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantProdutos);
         this.seguroEletronicos = seguroEletronicos;
     }
 
@@ -12,6 +12,11 @@ public class Informatica extends Loja {
     }
     public void setSeguroEletronicos(double seguroEletronicos) {
         this.seguroEletronicos = seguroEletronicos;
+    }
+
+    @Override
+    public String getTipoDeNegocio() {
+        return "informatica";
     }
 
     @Override
