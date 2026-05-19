@@ -21,6 +21,6 @@ public class Informatica extends Loja {
 
     @Override
     public String toString() {
-        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, \n%s, \nData de fundação: %s, \nValor Seguro para eletrônicos: %2f", getNome(), getQuantidadeFuncionarios(), getSalarioBaseFuncionario(), getEndereco(), getDataFundacao(), this.seguroEletronicos);
+        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, \n%s, \nData de fundação: %s, \nValor Seguro para eletrônicos: %2f",  super.getNome(),  super.getQuantidadeFuncionarios(), super.getSalarioBaseFuncionario(),  super.getEndereco(),  super.getDataFundacao(), this.seguroEletronicos);
     }
 }

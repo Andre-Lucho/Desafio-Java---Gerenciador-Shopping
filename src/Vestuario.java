@@ -21,6 +21,6 @@ public class Vestuario extends Loja{
 
     @Override
     public String toString() {
-        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, \n%s, \nData de fundação: %s, \nComercializa prod. importados: %b", getNome(), getQuantidadeFuncionarios(), getSalarioBaseFuncionario(), getEndereco(), getDataFundacao(), this.produtosImportados);
+        return String.format("Nome da loja: %s, \nN. total de Funcionários: %d, \nSalário Base: %2f, \n%s, \nData de fundação: %s, \nComercializa prod. importados: %b", super.getNome(), super.getQuantidadeFuncionarios(), super.getSalarioBaseFuncionario(), super.getEndereco(), super.getDataFundacao(), this.produtosImportados);
     }
 }

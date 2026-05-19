@@ -91,11 +91,8 @@ public class Loja {
     }
 
     public double gastosComSalario() {
-        if (salarioBaseFuncionario != -1) {
-            return quantidadeFuncionarios * salarioBaseFuncionario;
-        } else {
-            return -1.0;
-        }
+        if (salarioBaseFuncionario != -1) return quantidadeFuncionarios * salarioBaseFuncionario;
+        else return -1.0;
     }
 
     public char tamanhoDaLoja() {
