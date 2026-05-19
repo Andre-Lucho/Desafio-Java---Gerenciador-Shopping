@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.text.Normalizer;
 
 public class Shopping {
@@ -66,6 +67,7 @@ public class Shopping {
                 .trim();
         return stringNormalizada;
     }
+
     public int quantidadeLojasPorTipo(String tipo) {
         String tipoBusca = normalizarString(tipo);
 
@@ -84,26 +86,31 @@ public class Shopping {
     }
 
     public Informatica lojaSeguroMaisCaro() {
-        List<Informatica> lojasInfo = {};
-        List<double> valoresSeguro = {};
-        
+        Informatica lojaMaiorSeguro = null;
+        double maiorSeguro = 0;
+
         for(Loja loja : lojas){
-            if((loja.getTipoDeNegocio()).equals("informatica")){
-                // alimentar a lista 'lojasInfo'
-            }
+            if(loja instanceof Informatica){ 
+                Informatica lojaInfo = (Informatica) loja; // downcasting
 
-        }
-
-        for(List lojas : lojasInfo){
-            if(lojasInfo != null){
-                    loja.getSeguroEletronicos();
+                if(lojaInfo.getSeguroEletronicos() > maiorSeguro){
+                    maiorSeguro = lojaInfo.getSeguroEletronicos();
+                    lojaMaiorSeguro = lojaInfo;
                 }
-        }
+            }
+        };
 
-        // metodo para comparar e retornar o valor mais alto
-                
-        return null;
+        return lojaMaiorSeguro;
     }
+
+    public Informatica lojaSeguroMaisCaro2() {
+        return Arrays.stream(lojas)
+            .filter(Objects::nonNull)                 
+            .filter(Informatica.class::isInstance)   
+            .map(Informatica.class::cast)            
+            .max((l1, l2) -> Double.compare(l1.getSeguroEletronicos(), l2.getSeguroEletronicos())) 
+            .orElse(null);                          
+}
 
     @Override
     public String toString() {
