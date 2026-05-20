@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Loja {
@@ -9,22 +11,27 @@ public class Loja {
     private Data dataFundacao;
     private Produto[] estoqueProdutos;
 
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data data,
+    private List<Produto> estoqueProdutos1; 
+    // Lista com interface <Produto> tipo ArrayList == lista dinâmica
+    private int limiteMaximo;
+    // variavel auxiliar(como um cont) do tam da lista
+
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data datadataFundacao,
             int quantProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
-        this.dataFundacao = data;
+        this.dataFundacao = datadataFundacao;
         this.estoqueProdutos = new Produto[quantProdutos];
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data data, int quantProdutos) {
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int quantProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
         this.endereco = endereco;
-        this.dataFundacao = data;
+        this.dataFundacao = dataFundacao;
         this.estoqueProdutos = new Produto[quantProdutos];
     }
 
@@ -40,6 +47,15 @@ public class Loja {
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
         this.estoqueProdutos = new Produto[quantProdutos];
+    }
+
+    public Loja(String nome, int quantidadeFuncionarios, Data dataFundacao, int limiteMaximo) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.dataFundacao = dataFundacao;
+        this.estoqueProdutos1 = new ArrayList<>();
+        this.limiteMaximo = limiteMaximo;
+
     }
 
     public String getNome() {
@@ -124,6 +140,13 @@ public class Loja {
         return false;
     }
 
+    public boolean insereProduto2(Produto produto){
+        if(produto == null) return false;
+        if(estoqueProdutos1.size() < limiteMaximo) return estoqueProdutos1.add(produto);
+        
+        return false;
+    }
+
     public boolean removeProduto(String produto) {
         if (produto != null) {
             for (int i = 0; i < estoqueProdutos.length; i++) {
@@ -136,13 +159,21 @@ public class Loja {
         return false;
     }
 
+        public boolean removeProduto2(String produto) {
+        if (produto != null) return false;
+
+        return estoqueProdutos1.removeIf(prod -> prod.getNome().equals(produto));
+        // removeIf --> remove um elemento se ele atender a uma condição
+    }
+
+
     public String getTipoDeNegocio() {
         return "Geral";
     }
 
     @Override
     public String toString() {
-        String estoqueFormatado = Arrays.stream(getEstoqueProdutos()).map(p -> p == null ? "" : p.toString())
+        String estoqueFormatado = Arrays.stream(getEstoqueProdutos()).map(prod -> prod == null ? "" : prod.toString())
                 .collect(Collectors.joining(" | ", "[", "]"));
 
         return String.format(

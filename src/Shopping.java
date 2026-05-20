@@ -62,7 +62,7 @@ public class Shopping {
             return "";
 
         String stringNormalizada = Normalizer.normalize(texto, Normalizer.Form.NFD)
-                .replaceAll("\\p{M}", "")
+                .replaceAll("\\p{Mark}", "")
                 .toLowerCase()
                 .trim();
         return stringNormalizada;
@@ -99,7 +99,6 @@ public class Shopping {
                 }
             }
         };
-
         return lojaMaiorSeguro;
     }
 

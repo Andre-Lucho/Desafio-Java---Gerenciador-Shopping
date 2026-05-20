@@ -95,7 +95,7 @@ public class Principal {
             }
 
         } while (opcao != 3);
+        
         input.close();
-
     }
 }

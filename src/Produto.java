@@ -40,6 +40,9 @@ public class Produto {
                 dataValidade.getDia());
         LocalDate dataAtual = LocalDate.of(data.getAno(), data.getMes(), data.getDia());
 
+        // LocalDate hoje = LocalDate.now();
+        // return validadeProd.isBefore(hoje);
+
         return validadeProd.isBefore(dataAtual);
     }
 
