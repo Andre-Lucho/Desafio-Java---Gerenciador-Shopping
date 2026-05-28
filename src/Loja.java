@@ -12,9 +12,7 @@ public class Loja {
     private Produto[] estoqueProdutos;
 
     private List<Produto> estoqueProdutos1; 
-    // Lista com interface <Produto> tipo ArrayList == lista dinâmica
     private int limiteMaximo;
-    // variavel auxiliar(como um cont) do tam da lista
 
     public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data datadataFundacao,
             int quantProdutos) {
@@ -143,7 +141,6 @@ public class Loja {
     public boolean insereProduto2(Produto produto){
         if(produto == null) return false;
         if(estoqueProdutos1.size() < limiteMaximo) return estoqueProdutos1.add(produto);
-        
         return false;
     }
 
@@ -161,9 +158,7 @@ public class Loja {
 
         public boolean removeProduto2(String produto) {
         if (produto != null) return false;
-
         return estoqueProdutos1.removeIf(prod -> prod.getNome().equals(produto));
-        // removeIf --> remove um elemento se ele atender a uma condição
     }
 
 

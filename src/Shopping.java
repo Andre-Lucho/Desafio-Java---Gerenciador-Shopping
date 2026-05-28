@@ -91,7 +91,7 @@ public class Shopping {
 
         for(Loja loja : lojas){
             if(loja instanceof Informatica){ 
-                Informatica lojaInfo = (Informatica) loja; // downcasting
+                Informatica lojaInfo = (Informatica) loja;
 
                 if(lojaInfo.getSeguroEletronicos() > maiorSeguro){
                     maiorSeguro = lojaInfo.getSeguroEletronicos();
