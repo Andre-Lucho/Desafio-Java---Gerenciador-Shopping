@@ -79,7 +79,7 @@ public class Principal {
                     }
 
                     produto = criarProduto();
-                    Boolean novoProduto = produto.estaVencido(new Data(20, 10, 2023));
+                    Boolean novoProduto = produto.estaVencido();
 
                     if (novoProduto)
                         System.out.println("PRODUTO VENCIDO");
