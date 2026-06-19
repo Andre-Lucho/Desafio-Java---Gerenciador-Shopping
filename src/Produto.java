@@ -35,15 +35,12 @@ public class Produto {
         this.dataValidade = dataValidade;
     }
 
-    public boolean estaVencido(Data data) {
+    public boolean estaVencido() {
         LocalDate validadeProd = LocalDate.of(dataValidade.getAno(), dataValidade.getMes(),
                 dataValidade.getDia());
-        LocalDate dataAtual = LocalDate.of(data.getAno(), data.getMes(), data.getDia());
+        LocalDate hoje = LocalDate.now();
 
-        // LocalDate hoje = LocalDate.now();
-        // return validadeProd.isBefore(hoje);
-
-        return validadeProd.isBefore(dataAtual);
+        return validadeProd.isBefore(hoje);
     }
 
     @Override
