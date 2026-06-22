@@ -11,10 +11,11 @@ public class Loja {
     private Data dataFundacao;
     private Produto[] estoqueProdutos;
 
-    private List<Produto> estoqueProdutos1; 
+    private List<Produto> estoqueProdutos1;
     private int limiteMaximo;
 
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data datadataFundacao,
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco,
+            Data datadataFundacao,
             int quantProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
@@ -105,8 +106,10 @@ public class Loja {
     }
 
     public double gastosComSalario() {
-        if (salarioBaseFuncionario != -1) return quantidadeFuncionarios * salarioBaseFuncionario;
-        else return -1.0;
+        if (salarioBaseFuncionario != -1)
+            return quantidadeFuncionarios * salarioBaseFuncionario;
+        else
+            return -1.0;
     }
 
     public char tamanhoDaLoja() {
@@ -126,6 +129,11 @@ public class Loja {
             System.out.println(prod);
     }
 
+    public void imprimeProdutos2() {
+        for (Produto prod : estoqueProdutos1)
+            System.out.println(prod);
+    }
+
     public boolean insereProduto(Produto produto) {
         if (produto != null) {
             for (int i = 0; i < estoqueProdutos.length; i++) {
@@ -138,10 +146,15 @@ public class Loja {
         return false;
     }
 
-    public boolean insereProduto2(Produto produto){
-        if(produto == null) return false;
-        if(estoqueProdutos1.size() < limiteMaximo) return estoqueProdutos1.add(produto);
-        return false;
+    public boolean insereProduto2(Produto produto) {
+        if (produto == null)
+            return false;
+        if (estoqueProdutos1.size() < limiteMaximo) {
+            estoqueProdutos1.add(produto);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean removeProduto(String produto) {
@@ -156,11 +169,14 @@ public class Loja {
         return false;
     }
 
-        public boolean removeProduto2(String produto) {
-        if (produto != null) return false;
+    public boolean removeProduto2(String produto) {
+        if (produto == null)
+            return false;
         return estoqueProdutos1.removeIf(prod -> prod.getNome().equals(produto));
     }
-
+    // removeIf --> remove TODOS os produtos (e não apenas o primeiro == removeProduto()) com o nome passados
+    // retorna true se removeu pelo menos um produto
+    
 
     public String getTipoDeNegocio() {
         return "Geral";

@@ -55,7 +55,6 @@ public class Principal {
         Data validade = new Data(validadeDia, validadeMes, validadeAno);
 
         Produto produto = new Produto(nomeProduto, precoProduto, validade);
-        System.out.println("Produto criado com sucesso!");
 
         return produto;
     };
@@ -81,11 +80,14 @@ public class Principal {
                     produto = criarProduto();
                     Boolean novoProduto = produto.estaVencido();
 
-                    if (novoProduto)
-                        System.out.println("PRODUTO VENCIDO");
-                    else
-                        System.out.println("PRODUTO NÃO VENCIDO");
-                    break;
+                    if (novoProduto){
+                        System.out.println("ATENÇÃO: PRODUTO VENCIDO! VOCÊ PRECISA CRIÁ-LO NOVAMENTE COM UMA DATA VÁLIDA:");
+                        produto = criarProduto();
+                        break;
+                    }
+                    else{
+                        System.out.println("Produto criado com sucesso!");
+                    }
                 case 3:
                     System.out.println("Saindo do Menu...");
                     break;
@@ -93,7 +95,6 @@ public class Principal {
                     System.out.println("Opção inválida");
                     break;
             }
-
         } while (opcao != 3);
         
         input.close();
